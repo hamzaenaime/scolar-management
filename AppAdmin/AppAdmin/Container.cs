@@ -33,9 +33,16 @@ namespace AppAdmin
 
         private void filièresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Gestion_Filieres gst_etd = new Gestion_Filieres();
-            gst_etd.MdiParent = this;
-            gst_etd.Show();
+            Gestion_Filieres gst_fil = new Gestion_Filieres();
+            gst_fil.MdiParent = this;
+            gst_fil.Show();
+        }
+
+        private void matièresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Gestion_Matieres gst_mat= new Gestion_Matieres();
+            gst_mat.MdiParent = this;
+            gst_mat.Show();
         }
     }
 }

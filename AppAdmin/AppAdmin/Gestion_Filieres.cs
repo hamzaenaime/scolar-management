@@ -18,7 +18,27 @@ namespace AppAdmin
         {
             InitializeComponent();
         }
-
+        /*
+        private void LoadTable()
+        {
+            try
+            {
+                MySqlCommand cmd = dao.Lister(cne.Text);
+                MySqlDataAdapter sda = new MySqlDataAdapter();
+                sda.SelectCommand = cmd;
+                DataTable dataset = new DataTable();
+                sda.Fill(dataset);
+                BindingSource bsource = new BindingSource();
+                bsource.DataSource = dataset;
+                tab.DataSource = bsource;
+                sda.Update(dataset);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        */
         private void Ajouter_Click(object sender, EventArgs e)
         {
             string codef = codeF.Text;
