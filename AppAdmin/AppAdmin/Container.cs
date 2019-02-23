@@ -30,5 +30,12 @@ namespace AppAdmin
             gst_etd.MdiParent = this;
             gst_etd.Show();
         }
+
+        private void filièresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Gestion_Filieres gst_etd = new Gestion_Filieres();
+            gst_etd.MdiParent = this;
+            gst_etd.Show();
+        }
     }
 }

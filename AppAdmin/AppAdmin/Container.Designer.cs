@@ -87,6 +87,7 @@
             this.filièresToolStripMenuItem.Name = "filièresToolStripMenuItem";
             this.filièresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.filièresToolStripMenuItem.Text = "Filières";
+            this.filièresToolStripMenuItem.Click += new System.EventHandler(this.filièresToolStripMenuItem_Click);
             // 
             // matièresToolStripMenuItem
             // 

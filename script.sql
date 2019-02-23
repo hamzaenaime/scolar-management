@@ -25,7 +25,6 @@ DROP TABLE IF EXISTS `project`.`Filieres` ;
 
 CREATE TABLE IF NOT EXISTS `project`.`Filieres` (
   `codeF` VARCHAR(45) NOT NULL,
-  `Filierescol` VARCHAR(6) NULL,
   `designation` VARCHAR(45) NULL,
   PRIMARY KEY (`codeF`))
 ENGINE = InnoDB;
