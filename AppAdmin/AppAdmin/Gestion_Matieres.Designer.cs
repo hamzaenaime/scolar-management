@@ -369,6 +369,7 @@
             this.Modifier.TabIndex = 35;
             this.Modifier.Text = "Modifier";
             this.Modifier.UseVisualStyleBackColor = true;
+            this.Modifier.Click += new System.EventHandler(this.Modifier_Click);
             // 
             // button3
             // 
@@ -378,6 +379,7 @@
             this.button3.TabIndex = 36;
             this.button3.Text = "Supprimer";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Gestion_Matieres
             // 
