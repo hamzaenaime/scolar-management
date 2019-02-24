@@ -47,7 +47,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 43);
+            this.label1.Location = new System.Drawing.Point(59, 117);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(32, 13);
             this.label1.TabIndex = 0;
@@ -56,7 +56,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(32, 88);
+            this.label2.Location = new System.Drawing.Point(59, 162);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 13);
             this.label2.TabIndex = 1;
@@ -65,7 +65,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(32, 136);
+            this.label3.Location = new System.Drawing.Point(59, 210);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 13);
             this.label3.TabIndex = 2;
@@ -74,7 +74,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(32, 184);
+            this.label4.Location = new System.Drawing.Point(59, 258);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(34, 13);
             this.label4.TabIndex = 3;
@@ -83,7 +83,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(32, 231);
+            this.label5.Location = new System.Drawing.Point(59, 305);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 13);
             this.label5.TabIndex = 4;
@@ -91,21 +91,21 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(144, 35);
+            this.textBox1.Location = new System.Drawing.Point(171, 109);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(161, 20);
             this.textBox1.TabIndex = 5;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(144, 80);
+            this.textBox2.Location = new System.Drawing.Point(171, 154);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(161, 20);
             this.textBox2.TabIndex = 6;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(144, 128);
+            this.textBox3.Location = new System.Drawing.Point(171, 202);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(161, 20);
             this.textBox3.TabIndex = 7;
@@ -113,7 +113,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(144, 184);
+            this.comboBox1.Location = new System.Drawing.Point(171, 258);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(161, 21);
             this.comboBox1.TabIndex = 8;
@@ -121,14 +121,14 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(144, 231);
+            this.comboBox2.Location = new System.Drawing.Point(171, 305);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(161, 21);
             this.comboBox2.TabIndex = 9;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(563, 32);
+            this.button1.Location = new System.Drawing.Point(590, 106);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(164, 23);
             this.button1.TabIndex = 10;
@@ -137,7 +137,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(563, 83);
+            this.button2.Location = new System.Drawing.Point(590, 157);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(164, 23);
             this.button2.TabIndex = 11;
@@ -146,7 +146,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(563, 131);
+            this.button3.Location = new System.Drawing.Point(590, 205);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(164, 23);
             this.button3.TabIndex = 12;
@@ -155,7 +155,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(563, 184);
+            this.button4.Location = new System.Drawing.Point(590, 258);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(164, 23);
             this.button4.TabIndex = 13;
@@ -166,6 +166,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
             this.Controls.Add(this.button4);
@@ -182,6 +183,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "Gestion_Etudiants";
             this.Text = "Gestion_Etudiants";

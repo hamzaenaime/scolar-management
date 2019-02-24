@@ -19,9 +19,9 @@ namespace AppAdmin
 
         private void Container_Load(object sender, EventArgs e)
         {
-           /* Form gst_etd = new Gestion_Etudiants();
+            Gestion_Etudiants gst_etd = new Gestion_Etudiants();
             gst_etd.MdiParent = this;
-            gst_etd.Show();*/
+            gst_etd.Show();
         }
 
         private void etudiantsToolStripMenuItem_Click(object sender, EventArgs e)

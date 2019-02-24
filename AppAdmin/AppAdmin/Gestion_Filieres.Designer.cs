@@ -40,7 +40,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(40, 41);
+            this.label1.Location = new System.Drawing.Point(44, 175);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 13);
             this.label1.TabIndex = 0;
@@ -49,7 +49,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(40, 97);
+            this.label2.Location = new System.Drawing.Point(44, 231);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 1;
@@ -57,21 +57,21 @@
             // 
             // codeF
             // 
-            this.codeF.Location = new System.Drawing.Point(193, 34);
+            this.codeF.Location = new System.Drawing.Point(197, 168);
             this.codeF.Name = "codeF";
             this.codeF.Size = new System.Drawing.Size(139, 20);
             this.codeF.TabIndex = 2;
             // 
             // designation
             // 
-            this.designation.Location = new System.Drawing.Point(193, 89);
+            this.designation.Location = new System.Drawing.Point(197, 223);
             this.designation.Name = "designation";
             this.designation.Size = new System.Drawing.Size(139, 20);
             this.designation.TabIndex = 3;
             // 
             // Ajouter
             // 
-            this.Ajouter.Location = new System.Drawing.Point(583, 31);
+            this.Ajouter.Location = new System.Drawing.Point(587, 165);
             this.Ajouter.Name = "Ajouter";
             this.Ajouter.Size = new System.Drawing.Size(144, 23);
             this.Ajouter.TabIndex = 4;
@@ -81,7 +81,7 @@
             // 
             // Modifier
             // 
-            this.Modifier.Location = new System.Drawing.Point(583, 87);
+            this.Modifier.Location = new System.Drawing.Point(587, 221);
             this.Modifier.Name = "Modifier";
             this.Modifier.Size = new System.Drawing.Size(144, 23);
             this.Modifier.TabIndex = 5;
@@ -91,7 +91,7 @@
             // 
             // Supprimer
             // 
-            this.Supprimer.Location = new System.Drawing.Point(583, 142);
+            this.Supprimer.Location = new System.Drawing.Point(587, 276);
             this.Supprimer.Name = "Supprimer";
             this.Supprimer.Size = new System.Drawing.Size(144, 23);
             this.Supprimer.TabIndex = 6;
@@ -103,6 +103,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
             this.Controls.Add(this.Supprimer);
@@ -112,6 +114,7 @@
             this.Controls.Add(this.codeF);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Gestion_Filieres";
             this.Text = "Gestion_Filieres";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
