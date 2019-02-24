@@ -17,6 +17,8 @@ namespace AppAdmin
         private ModuleDAO moduleDao = new ModuleDAO("modules");
         //matiere dao
         private MatiereDAO matiereDao = new MatiereDAO("matieres");
+        //filiere dao
+        private FiliereDAO filiereDao = new FiliereDAO("filieres");
         public Gestion_Matieres()
         {
             InitializeComponent();
@@ -132,6 +134,16 @@ namespace AppAdmin
                 MessageBox.Show("Remplire tous les champs nécissaire");
             }
 
+        }
+
+        private void Gestion_Matieres_Load(object sender, EventArgs e)
+        {
+            List<Dictionary<string, string>> filieres = filiereDao.Select("select * from filieres");
+            //Console.WriteLine(filieres.Count);
+            foreach (Dictionary<string, string> filiere in filieres)
+            {
+                codeF.Items.Add(filiere["codeF"]);
+            }
         }
     }
 }

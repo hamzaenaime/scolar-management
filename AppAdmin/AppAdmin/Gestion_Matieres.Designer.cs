@@ -134,6 +134,10 @@
             // Niveau
             // 
             this.Niveau.FormattingEnabled = true;
+            this.Niveau.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
             this.Niveau.Location = new System.Drawing.Point(456, 220);
             this.Niveau.Name = "Niveau";
             this.Niveau.Size = new System.Drawing.Size(167, 21);
@@ -425,6 +429,7 @@
             this.Name = "Gestion_Matieres";
             this.Text = "Gestion_Matieres";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Gestion_Matieres_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
