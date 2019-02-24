@@ -67,28 +67,28 @@
             // filièresToolStripMenuItem
             // 
             this.filièresToolStripMenuItem.Name = "filièresToolStripMenuItem";
-            this.filièresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.filièresToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.filièresToolStripMenuItem.Text = "Filières";
             this.filièresToolStripMenuItem.Click += new System.EventHandler(this.filièresToolStripMenuItem_Click);
             // 
             // matièresToolStripMenuItem
             // 
             this.matièresToolStripMenuItem.Name = "matièresToolStripMenuItem";
-            this.matièresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.matièresToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.matièresToolStripMenuItem.Text = "Matières";
             this.matièresToolStripMenuItem.Click += new System.EventHandler(this.matièresToolStripMenuItem_Click);
             // 
             // etudiantsToolStripMenuItem
             // 
             this.etudiantsToolStripMenuItem.Name = "etudiantsToolStripMenuItem";
-            this.etudiantsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.etudiantsToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.etudiantsToolStripMenuItem.Text = "Etudiants";
             this.etudiantsToolStripMenuItem.Click += new System.EventHandler(this.etudiantsToolStripMenuItem_Click);
             // 
             // notesToolStripMenuItem
             // 
             this.notesToolStripMenuItem.Name = "notesToolStripMenuItem";
-            this.notesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.notesToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.notesToolStripMenuItem.Text = "Notes";
             // 
             // affichageToolStripMenuItem
@@ -108,6 +108,7 @@
             this.quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
             this.quitterToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.quitterToolStripMenuItem.Text = "Quitter";
+            this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click);
             // 
             // Container
             // 

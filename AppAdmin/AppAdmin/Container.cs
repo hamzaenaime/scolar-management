@@ -44,5 +44,14 @@ namespace AppAdmin
             gst_mat.MdiParent = this;
             gst_mat.Show();
         }
+
+        private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("etes vous sure ?", "Fermer l'application", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
     }
 }

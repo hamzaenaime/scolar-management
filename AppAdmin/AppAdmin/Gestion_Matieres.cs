@@ -7,11 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GestionNotes;
 
 namespace AppAdmin
 {
     public partial class Gestion_Matieres : Form
     {
+        //module dao
+        private ModuleDAO moduleDao = new ModuleDAO("modules");
+        //matiere dao
+        private MatiereDAO matiereDao = new MatiereDAO("matieres");
         public Gestion_Matieres()
         {
             InitializeComponent();
@@ -43,25 +48,24 @@ namespace AppAdmin
             {
                 //etape 1 
                 //inserer module dans la table modules
-                
-                //code here
 
+                moduleDao.Insert(new Module(code_m,designation,niveau, nombre_m, semestre,code_f));
                 //etape2
                 //inserer matieres
                 //matiere 1
                 if (code_m1!="" && designation1!="" && poid1!="")
                 {
-                    //code here
+                    matiereDao.Insert(new Matiere(code_m1,designation1,poid1,code_m));
                 }
                 //matiere 2
                 if (code_m2 != "" && designation2 != "" && poid2 != "")
                 {
-                    //code here
+                    matiereDao.Insert(new Matiere(code_m2, designation2, poid2, code_m));
                 }
                 //matiere 3
                 if (code_m3 != "" && designation3 != "" && poid3 != "")
                 {
-                    //code here
+                    matiereDao.Insert(new Matiere(code_m3, designation3, poid3, code_m));
                 }
                 MessageBox.Show("Module ajouter");
             }
