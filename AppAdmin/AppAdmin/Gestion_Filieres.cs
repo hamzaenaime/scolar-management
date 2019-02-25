@@ -14,31 +14,58 @@ namespace AppAdmin
     public partial class Gestion_Filieres : Form
     {
         private FiliereDAO dao = new FiliereDAO("filieres");
+        DataTable table = new DataTable();
         public Gestion_Filieres()
         {
             InitializeComponent();
+            LoadTable();
+            FillTable();
+            Filieres.CellClick += Filieres_CellClick;
         }
-        /*
         private void LoadTable()
         {
             try
             {
-                MySqlCommand cmd = dao.Lister(cne.Text);
-                MySqlDataAdapter sda = new MySqlDataAdapter();
-                sda.SelectCommand = cmd;
-                DataTable dataset = new DataTable();
-                sda.Fill(dataset);
-                BindingSource bsource = new BindingSource();
-                bsource.DataSource = dataset;
-                tab.DataSource = bsource;
-                sda.Update(dataset);
+                
+                DataColumn c0 = new DataColumn("codeF");
+                DataColumn c1 = new DataColumn("designation");
+                DataGridViewButtonColumn modifier = new DataGridViewButtonColumn();
+                DataGridViewButtonColumn supprimer = new DataGridViewButtonColumn();
+
+                table.Columns.Add(c0);
+                table.Columns.Add(c1);
+
+
+                //set datagridview buttons
+                Filieres.Columns.Add(modifier);
+                Filieres.Columns.Add(supprimer);
+                modifier.Text = "Modifier";
+                modifier.Name = "";
+                modifier.UseColumnTextForButtonValue = true;
+                supprimer.Text = "Supprimer";
+                supprimer.Name = "";
+                supprimer.UseColumnTextForButtonValue = true;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
-        */
+
+        private void FillTable()
+        {
+            table.Clear();
+            List<Dictionary<string, string>> filieres = dao.Select("select * from filieres");
+            foreach (Dictionary<string, string> element in filieres)
+            {
+                DataRow row = table.NewRow();
+                row["codeF"] = element["codeF"];
+                row["designation"] = element["designation"];
+                table.Rows.Add(row);
+            }
+            //set table
+            Filieres.DataSource = table;
+        }
         private void Ajouter_Click(object sender, EventArgs e)
         {
             string codef = codeF.Text;
@@ -47,39 +74,43 @@ namespace AppAdmin
             {
                 dao.Insert(new Filiere(codef,designa));
                 MessageBox.Show("Filiere ajouter");
+                FillTable();
             }
             else
             {
                 MessageBox.Show("Remplire tous les champs");
             }
         }
-
-        private void Modifier_Click(object sender, EventArgs e)
+        private void Filieres_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            string codef = codeF.Text;
-            string designa = designation.Text;
-            if (codef != "" && designa != "")
+        }
+
+        private void Filieres_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //modifier handler
+            if (e.ColumnIndex == 0)
             {
-                dao.Update(new Filiere(codef,designa)," codeF='"+codef+"'");
+                // get codef
+                string codef = Filieres[2, e.RowIndex].Value.ToString();
+                // get designation
+                string designation = Filieres[3, e.RowIndex].Value.ToString();
+                //update 
+                dao.Update(new Filiere(codef, designation), " codeF='" + codef + "'");
                 MessageBox.Show("Filiere Modifier");
+                FillTable();
             }
-            else
+            //supprimer handler
+            if (e.ColumnIndex == 1)
             {
-                MessageBox.Show("Remplire tous les champs");
+                // get codef
+                string codef = Filieres[2, e.RowIndex].Value.ToString();
+                // delete
+                dao.Delete("codeF='" + codef + "'");
+                MessageBox.Show(codef+" Filiere supprimer");
+                FillTable();
             }
         }
 
-        private void Supprimer_Click(object sender, EventArgs e)
-        {
-            if (codeF.Text != "")
-            {
-                dao.Delete("codeF='" + codeF.Text + "'");
-                MessageBox.Show("Filiere supprimer");
-            }
-            else
-            {
-                MessageBox.Show("Saisire le code filiere");
-            }
-        }
+
     }
 }

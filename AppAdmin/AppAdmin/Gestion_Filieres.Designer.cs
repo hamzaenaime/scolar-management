@@ -33,14 +33,14 @@
             this.codeF = new System.Windows.Forms.TextBox();
             this.designation = new System.Windows.Forms.TextBox();
             this.Ajouter = new System.Windows.Forms.Button();
-            this.Modifier = new System.Windows.Forms.Button();
-            this.Supprimer = new System.Windows.Forms.Button();
+            this.Filieres = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.Filieres)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(44, 175);
+            this.label1.Location = new System.Drawing.Point(38, 72);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 13);
             this.label1.TabIndex = 0;
@@ -49,7 +49,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(44, 231);
+            this.label2.Location = new System.Drawing.Point(38, 128);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 1;
@@ -57,21 +57,21 @@
             // 
             // codeF
             // 
-            this.codeF.Location = new System.Drawing.Point(197, 168);
+            this.codeF.Location = new System.Drawing.Point(191, 65);
             this.codeF.Name = "codeF";
             this.codeF.Size = new System.Drawing.Size(139, 20);
             this.codeF.TabIndex = 2;
             // 
             // designation
             // 
-            this.designation.Location = new System.Drawing.Point(197, 223);
+            this.designation.Location = new System.Drawing.Point(191, 120);
             this.designation.Name = "designation";
             this.designation.Size = new System.Drawing.Size(139, 20);
             this.designation.TabIndex = 3;
             // 
             // Ajouter
             // 
-            this.Ajouter.Location = new System.Drawing.Point(587, 165);
+            this.Ajouter.Location = new System.Drawing.Point(581, 62);
             this.Ajouter.Name = "Ajouter";
             this.Ajouter.Size = new System.Drawing.Size(144, 23);
             this.Ajouter.TabIndex = 4;
@@ -79,25 +79,16 @@
             this.Ajouter.UseVisualStyleBackColor = true;
             this.Ajouter.Click += new System.EventHandler(this.Ajouter_Click);
             // 
-            // Modifier
+            // Filieres
             // 
-            this.Modifier.Location = new System.Drawing.Point(587, 221);
-            this.Modifier.Name = "Modifier";
-            this.Modifier.Size = new System.Drawing.Size(144, 23);
-            this.Modifier.TabIndex = 5;
-            this.Modifier.Text = "Modifier";
-            this.Modifier.UseVisualStyleBackColor = true;
-            this.Modifier.Click += new System.EventHandler(this.Modifier_Click);
-            // 
-            // Supprimer
-            // 
-            this.Supprimer.Location = new System.Drawing.Point(587, 276);
-            this.Supprimer.Name = "Supprimer";
-            this.Supprimer.Size = new System.Drawing.Size(144, 23);
-            this.Supprimer.TabIndex = 6;
-            this.Supprimer.Text = "Supprimer";
-            this.Supprimer.UseVisualStyleBackColor = true;
-            this.Supprimer.Click += new System.EventHandler(this.Supprimer_Click);
+            this.Filieres.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.Filieres.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Filieres.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Filieres.Location = new System.Drawing.Point(41, 173);
+            this.Filieres.Name = "Filieres";
+            this.Filieres.Size = new System.Drawing.Size(534, 200);
+            this.Filieres.TabIndex = 7;
+            this.Filieres.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Filieres_CellContentClick);
             // 
             // Gestion_Filieres
             // 
@@ -107,8 +98,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
-            this.Controls.Add(this.Supprimer);
-            this.Controls.Add(this.Modifier);
+            this.Controls.Add(this.Filieres);
             this.Controls.Add(this.Ajouter);
             this.Controls.Add(this.designation);
             this.Controls.Add(this.codeF);
@@ -118,6 +108,7 @@
             this.Name = "Gestion_Filieres";
             this.Text = "Gestion_Filieres";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            ((System.ComponentModel.ISupportInitialize)(this.Filieres)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -130,7 +121,6 @@
         private System.Windows.Forms.TextBox codeF;
         private System.Windows.Forms.TextBox designation;
         private System.Windows.Forms.Button Ajouter;
-        private System.Windows.Forms.Button Modifier;
-        private System.Windows.Forms.Button Supprimer;
+        private System.Windows.Forms.DataGridView Filieres;
     }
 }
