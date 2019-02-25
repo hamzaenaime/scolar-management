@@ -66,6 +66,8 @@ namespace AppAdmin
             //set table
             Filieres.DataSource = table;
         }
+
+
         private void Ajouter_Click(object sender, EventArgs e)
         {
             string codef = codeF.Text;

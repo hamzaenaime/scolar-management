@@ -61,12 +61,16 @@
             this.label15 = new System.Windows.Forms.Label();
             this.Modifier = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.Modules = new System.Windows.Forms.DataGridView();
+            this.Matieres = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.Modules)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Matieres)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(90, 169);
+            this.label1.Location = new System.Drawing.Point(11, 54);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 13);
             this.label1.TabIndex = 0;
@@ -75,7 +79,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(349, 169);
+            this.label2.Location = new System.Drawing.Point(223, 54);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 1;
@@ -84,7 +88,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(349, 223);
+            this.label3.Location = new System.Drawing.Point(223, 108);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 13);
             this.label3.TabIndex = 2;
@@ -93,7 +97,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(90, 277);
+            this.label4.Location = new System.Drawing.Point(11, 162);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(101, 13);
             this.label4.TabIndex = 3;
@@ -102,7 +106,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(349, 277);
+            this.label5.Location = new System.Drawing.Point(223, 162);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(48, 13);
             this.label5.TabIndex = 4;
@@ -111,7 +115,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(90, 223);
+            this.label6.Location = new System.Drawing.Point(11, 108);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(62, 13);
             this.label6.TabIndex = 5;
@@ -119,16 +123,16 @@
             // 
             // codeM
             // 
-            this.codeM.Location = new System.Drawing.Point(213, 166);
+            this.codeM.Location = new System.Drawing.Point(113, 51);
             this.codeM.Name = "codeM";
             this.codeM.Size = new System.Drawing.Size(97, 20);
             this.codeM.TabIndex = 6;
             // 
             // Designation
             // 
-            this.Designation.Location = new System.Drawing.Point(456, 166);
+            this.Designation.Location = new System.Drawing.Point(330, 51);
             this.Designation.Name = "Designation";
-            this.Designation.Size = new System.Drawing.Size(167, 20);
+            this.Designation.Size = new System.Drawing.Size(120, 20);
             this.Designation.TabIndex = 7;
             // 
             // Niveau
@@ -138,9 +142,9 @@
             "1",
             "2",
             "3"});
-            this.Niveau.Location = new System.Drawing.Point(456, 220);
+            this.Niveau.Location = new System.Drawing.Point(330, 105);
             this.Niveau.Name = "Niveau";
-            this.Niveau.Size = new System.Drawing.Size(167, 21);
+            this.Niveau.Size = new System.Drawing.Size(120, 21);
             this.Niveau.TabIndex = 10;
             // 
             // Semestre
@@ -149,22 +153,22 @@
             this.Semestre.Items.AddRange(new object[] {
             "1",
             "2"});
-            this.Semestre.Location = new System.Drawing.Point(456, 274);
+            this.Semestre.Location = new System.Drawing.Point(330, 159);
             this.Semestre.Name = "Semestre";
-            this.Semestre.Size = new System.Drawing.Size(167, 21);
+            this.Semestre.Size = new System.Drawing.Size(120, 21);
             this.Semestre.TabIndex = 11;
             // 
             // codeF
             // 
             this.codeF.FormattingEnabled = true;
-            this.codeF.Location = new System.Drawing.Point(213, 220);
+            this.codeF.Location = new System.Drawing.Point(113, 105);
             this.codeF.Name = "codeF";
             this.codeF.Size = new System.Drawing.Size(97, 21);
             this.codeF.TabIndex = 12;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(769, 165);
+            this.button1.Location = new System.Drawing.Point(557, 51);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(121, 21);
             this.button1.TabIndex = 13;
@@ -179,7 +183,7 @@
             "1",
             "2",
             "3"});
-            this.nombreMatieres.Location = new System.Drawing.Point(213, 274);
+            this.nombreMatieres.Location = new System.Drawing.Point(113, 159);
             this.nombreMatieres.Name = "nombreMatieres";
             this.nombreMatieres.Size = new System.Drawing.Size(97, 21);
             this.nombreMatieres.TabIndex = 16;
@@ -188,7 +192,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(90, 342);
+            this.label7.Location = new System.Drawing.Point(11, 227);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(79, 13);
             this.label7.TabIndex = 17;
@@ -197,7 +201,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(674, 338);
+            this.label8.Location = new System.Drawing.Point(462, 224);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(33, 13);
             this.label8.TabIndex = 18;
@@ -206,7 +210,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(349, 342);
+            this.label9.Location = new System.Drawing.Point(223, 227);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(63, 13);
             this.label9.TabIndex = 19;
@@ -214,16 +218,16 @@
             // 
             // codeM1
             // 
-            this.codeM1.Location = new System.Drawing.Point(213, 335);
+            this.codeM1.Location = new System.Drawing.Point(113, 220);
             this.codeM1.Name = "codeM1";
             this.codeM1.Size = new System.Drawing.Size(97, 20);
             this.codeM1.TabIndex = 20;
             // 
             // Designation1
             // 
-            this.Designation1.Location = new System.Drawing.Point(456, 335);
+            this.Designation1.Location = new System.Drawing.Point(330, 220);
             this.Designation1.Name = "Designation1";
-            this.Designation1.Size = new System.Drawing.Size(167, 20);
+            this.Designation1.Size = new System.Drawing.Size(120, 20);
             this.Designation1.TabIndex = 21;
             // 
             // Poids1
@@ -240,7 +244,7 @@
             "0.8",
             "0.9",
             "1"});
-            this.Poids1.Location = new System.Drawing.Point(769, 333);
+            this.Poids1.Location = new System.Drawing.Point(557, 219);
             this.Poids1.Name = "Poids1";
             this.Poids1.Size = new System.Drawing.Size(121, 21);
             this.Poids1.TabIndex = 22;
@@ -259,21 +263,21 @@
             "0.8",
             "0.9",
             "1"});
-            this.Poids2.Location = new System.Drawing.Point(769, 391);
+            this.Poids2.Location = new System.Drawing.Point(557, 277);
             this.Poids2.Name = "Poids2";
             this.Poids2.Size = new System.Drawing.Size(121, 21);
             this.Poids2.TabIndex = 28;
             // 
             // Designation2
             // 
-            this.Designation2.Location = new System.Drawing.Point(456, 393);
+            this.Designation2.Location = new System.Drawing.Point(330, 278);
             this.Designation2.Name = "Designation2";
-            this.Designation2.Size = new System.Drawing.Size(167, 20);
+            this.Designation2.Size = new System.Drawing.Size(120, 20);
             this.Designation2.TabIndex = 27;
             // 
             // codeM2
             // 
-            this.codeM2.Location = new System.Drawing.Point(213, 393);
+            this.codeM2.Location = new System.Drawing.Point(113, 278);
             this.codeM2.Name = "codeM2";
             this.codeM2.Size = new System.Drawing.Size(97, 20);
             this.codeM2.TabIndex = 26;
@@ -281,7 +285,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(349, 400);
+            this.label10.Location = new System.Drawing.Point(223, 285);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(63, 13);
             this.label10.TabIndex = 25;
@@ -290,7 +294,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(674, 396);
+            this.label11.Location = new System.Drawing.Point(462, 282);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(33, 13);
             this.label11.TabIndex = 24;
@@ -299,7 +303,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(90, 400);
+            this.label12.Location = new System.Drawing.Point(11, 285);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(79, 13);
             this.label12.TabIndex = 23;
@@ -319,21 +323,21 @@
             "0.8",
             "0.9",
             "1"});
-            this.Poids3.Location = new System.Drawing.Point(769, 454);
+            this.Poids3.Location = new System.Drawing.Point(557, 340);
             this.Poids3.Name = "Poids3";
             this.Poids3.Size = new System.Drawing.Size(121, 21);
             this.Poids3.TabIndex = 34;
             // 
             // Designation3
             // 
-            this.Designation3.Location = new System.Drawing.Point(456, 456);
+            this.Designation3.Location = new System.Drawing.Point(330, 341);
             this.Designation3.Name = "Designation3";
-            this.Designation3.Size = new System.Drawing.Size(167, 20);
+            this.Designation3.Size = new System.Drawing.Size(120, 20);
             this.Designation3.TabIndex = 33;
             // 
             // codeM3
             // 
-            this.codeM3.Location = new System.Drawing.Point(213, 456);
+            this.codeM3.Location = new System.Drawing.Point(113, 341);
             this.codeM3.Name = "codeM3";
             this.codeM3.Size = new System.Drawing.Size(97, 20);
             this.codeM3.TabIndex = 32;
@@ -341,7 +345,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(349, 463);
+            this.label13.Location = new System.Drawing.Point(223, 348);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(63, 13);
             this.label13.TabIndex = 31;
@@ -350,7 +354,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(674, 459);
+            this.label14.Location = new System.Drawing.Point(462, 345);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(33, 13);
             this.label14.TabIndex = 30;
@@ -359,7 +363,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(90, 463);
+            this.label15.Location = new System.Drawing.Point(11, 348);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(79, 13);
             this.label15.TabIndex = 29;
@@ -367,7 +371,7 @@
             // 
             // Modifier
             // 
-            this.Modifier.Location = new System.Drawing.Point(769, 220);
+            this.Modifier.Location = new System.Drawing.Point(557, 106);
             this.Modifier.Name = "Modifier";
             this.Modifier.Size = new System.Drawing.Size(121, 21);
             this.Modifier.TabIndex = 35;
@@ -377,7 +381,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(769, 274);
+            this.button3.Location = new System.Drawing.Point(557, 160);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(121, 21);
             this.button3.TabIndex = 36;
@@ -385,13 +389,36 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // Modules
+            // 
+            this.Modules.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.Modules.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Modules.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Modules.Location = new System.Drawing.Point(54, 393);
+            this.Modules.Name = "Modules";
+            this.Modules.Size = new System.Drawing.Size(1167, 371);
+            this.Modules.TabIndex = 37;
+            // 
+            // Matieres
+            // 
+            this.Matieres.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.Matieres.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Matieres.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Matieres.GridColor = System.Drawing.SystemColors.Window;
+            this.Matieres.Location = new System.Drawing.Point(684, 51);
+            this.Matieres.Name = "Matieres";
+            this.Matieres.Size = new System.Drawing.Size(667, 311);
+            this.Matieres.TabIndex = 38;
+            // 
             // Gestion_Matieres
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1001, 555);
+            this.ClientSize = new System.Drawing.Size(1386, 788);
             this.ControlBox = false;
+            this.Controls.Add(this.Matieres);
+            this.Controls.Add(this.Modules);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.Modifier);
             this.Controls.Add(this.Poids3);
@@ -430,6 +457,8 @@
             this.Text = "Gestion_Matieres";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Gestion_Matieres_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.Modules)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Matieres)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -470,5 +499,7 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button Modifier;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.DataGridView Modules;
+        private System.Windows.Forms.DataGridView Matieres;
     }
 }
