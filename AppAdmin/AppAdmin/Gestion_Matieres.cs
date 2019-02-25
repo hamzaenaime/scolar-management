@@ -46,13 +46,16 @@ namespace AppAdmin
                 DataColumn c5 = new DataColumn("code filiere");
                 DataGridViewButtonColumn modifier = new DataGridViewButtonColumn();
                 DataGridViewButtonColumn supprimer = new DataGridViewButtonColumn();
-
+                c0.ReadOnly = true;
+                c5.ReadOnly = true;
                 modules.Columns.Add(c0);
                 modules.Columns.Add(c1);
                 modules.Columns.Add(c2);
                 modules.Columns.Add(c3);
                 modules.Columns.Add(c4);
                 modules.Columns.Add(c5);
+                Modules.AllowUserToAddRows = false;
+                Modules.RowHeadersVisible = false;
 
 
                 //set datagridview buttons
@@ -100,23 +103,20 @@ namespace AppAdmin
                 DataColumn c2 = new DataColumn("poids");
                 DataColumn c3 = new DataColumn("code module");
                 DataGridViewButtonColumn modifier = new DataGridViewButtonColumn();
-                DataGridViewButtonColumn supprimer = new DataGridViewButtonColumn();
-
+                c0.ReadOnly = true;
+                c3.ReadOnly = true;
                 matieres.Columns.Add(c0);
                 matieres.Columns.Add(c1);
                 matieres.Columns.Add(c2);
                 matieres.Columns.Add(c3);
-
+                Matieres.AllowUserToAddRows = false;
+                Matieres.RowHeadersVisible = false;
 
                 //set datagridview buttons
                 Matieres.Columns.Add(modifier);
-                Matieres.Columns.Add(supprimer);
                 modifier.Text = "Modifier";
                 modifier.Name = "";
                 modifier.UseColumnTextForButtonValue = true;
-                supprimer.Text = "Supprimer";
-                supprimer.Name = "";
-                supprimer.UseColumnTextForButtonValue = true;
             }
             catch (Exception ex)
             {
@@ -142,9 +142,16 @@ namespace AppAdmin
         }
         private void Modules_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 2)
+            //module delete
+            if (e.ColumnIndex == 1)
             {
-                //show matieres
+                string codeModule = Modules[2, e.RowIndex].Value.ToString();
+                MessageBox.Show(codeModule);
+                matiereDao.Delete(" codeModule='" + codeModule + "'");
+                moduleDao.Delete(" codeModule='" + codeModule + "'");
+                MessageBox.Show("Module supprimer");
+                FillTableMatieres();
+                FillTableModules();
             }
         }
 

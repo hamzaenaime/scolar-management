@@ -59,8 +59,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.Modifier = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.Modules = new System.Windows.Forms.DataGridView();
             this.Matieres = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.Modules)).BeginInit();
@@ -132,7 +130,7 @@
             // 
             this.Designation.Location = new System.Drawing.Point(330, 51);
             this.Designation.Name = "Designation";
-            this.Designation.Size = new System.Drawing.Size(120, 20);
+            this.Designation.Size = new System.Drawing.Size(211, 20);
             this.Designation.TabIndex = 7;
             // 
             // Niveau
@@ -144,7 +142,7 @@
             "3"});
             this.Niveau.Location = new System.Drawing.Point(330, 105);
             this.Niveau.Name = "Niveau";
-            this.Niveau.Size = new System.Drawing.Size(120, 21);
+            this.Niveau.Size = new System.Drawing.Size(211, 21);
             this.Niveau.TabIndex = 10;
             // 
             // Semestre
@@ -155,7 +153,7 @@
             "2"});
             this.Semestre.Location = new System.Drawing.Point(330, 159);
             this.Semestre.Name = "Semestre";
-            this.Semestre.Size = new System.Drawing.Size(120, 21);
+            this.Semestre.Size = new System.Drawing.Size(211, 21);
             this.Semestre.TabIndex = 11;
             // 
             // codeF
@@ -168,7 +166,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(557, 51);
+            this.button1.Location = new System.Drawing.Point(653, 50);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(121, 21);
             this.button1.TabIndex = 13;
@@ -201,7 +199,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(462, 224);
+            this.label8.Location = new System.Drawing.Point(558, 223);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(33, 13);
             this.label8.TabIndex = 18;
@@ -227,7 +225,7 @@
             // 
             this.Designation1.Location = new System.Drawing.Point(330, 220);
             this.Designation1.Name = "Designation1";
-            this.Designation1.Size = new System.Drawing.Size(120, 20);
+            this.Designation1.Size = new System.Drawing.Size(211, 20);
             this.Designation1.TabIndex = 21;
             // 
             // Poids1
@@ -244,7 +242,7 @@
             "0.8",
             "0.9",
             "1"});
-            this.Poids1.Location = new System.Drawing.Point(557, 219);
+            this.Poids1.Location = new System.Drawing.Point(653, 218);
             this.Poids1.Name = "Poids1";
             this.Poids1.Size = new System.Drawing.Size(121, 21);
             this.Poids1.TabIndex = 22;
@@ -263,7 +261,7 @@
             "0.8",
             "0.9",
             "1"});
-            this.Poids2.Location = new System.Drawing.Point(557, 277);
+            this.Poids2.Location = new System.Drawing.Point(653, 276);
             this.Poids2.Name = "Poids2";
             this.Poids2.Size = new System.Drawing.Size(121, 21);
             this.Poids2.TabIndex = 28;
@@ -272,7 +270,7 @@
             // 
             this.Designation2.Location = new System.Drawing.Point(330, 278);
             this.Designation2.Name = "Designation2";
-            this.Designation2.Size = new System.Drawing.Size(120, 20);
+            this.Designation2.Size = new System.Drawing.Size(211, 20);
             this.Designation2.TabIndex = 27;
             // 
             // codeM2
@@ -294,7 +292,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(462, 282);
+            this.label11.Location = new System.Drawing.Point(558, 281);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(33, 13);
             this.label11.TabIndex = 24;
@@ -323,7 +321,7 @@
             "0.8",
             "0.9",
             "1"});
-            this.Poids3.Location = new System.Drawing.Point(557, 340);
+            this.Poids3.Location = new System.Drawing.Point(653, 339);
             this.Poids3.Name = "Poids3";
             this.Poids3.Size = new System.Drawing.Size(121, 21);
             this.Poids3.TabIndex = 34;
@@ -332,7 +330,7 @@
             // 
             this.Designation3.Location = new System.Drawing.Point(330, 341);
             this.Designation3.Name = "Designation3";
-            this.Designation3.Size = new System.Drawing.Size(120, 20);
+            this.Designation3.Size = new System.Drawing.Size(211, 20);
             this.Designation3.TabIndex = 33;
             // 
             // codeM3
@@ -354,7 +352,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(462, 345);
+            this.label14.Location = new System.Drawing.Point(558, 344);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(33, 13);
             this.label14.TabIndex = 30;
@@ -369,26 +367,6 @@
             this.label15.TabIndex = 29;
             this.label15.Text = "Code Matiere 3";
             // 
-            // Modifier
-            // 
-            this.Modifier.Location = new System.Drawing.Point(557, 106);
-            this.Modifier.Name = "Modifier";
-            this.Modifier.Size = new System.Drawing.Size(121, 21);
-            this.Modifier.TabIndex = 35;
-            this.Modifier.Text = "Modifier";
-            this.Modifier.UseVisualStyleBackColor = true;
-            this.Modifier.Click += new System.EventHandler(this.Modifier_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(557, 160);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(121, 21);
-            this.button3.TabIndex = 36;
-            this.button3.Text = "Supprimer";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // Modules
             // 
             this.Modules.BackgroundColor = System.Drawing.SystemColors.Window;
@@ -396,7 +374,7 @@
             this.Modules.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Modules.Location = new System.Drawing.Point(54, 393);
             this.Modules.Name = "Modules";
-            this.Modules.Size = new System.Drawing.Size(1167, 371);
+            this.Modules.Size = new System.Drawing.Size(1258, 371);
             this.Modules.TabIndex = 37;
             // 
             // Matieres
@@ -405,9 +383,9 @@
             this.Matieres.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Matieres.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Matieres.GridColor = System.Drawing.SystemColors.Window;
-            this.Matieres.Location = new System.Drawing.Point(684, 51);
+            this.Matieres.Location = new System.Drawing.Point(798, 51);
             this.Matieres.Name = "Matieres";
-            this.Matieres.Size = new System.Drawing.Size(667, 311);
+            this.Matieres.Size = new System.Drawing.Size(553, 311);
             this.Matieres.TabIndex = 38;
             // 
             // Gestion_Matieres
@@ -419,8 +397,6 @@
             this.ControlBox = false;
             this.Controls.Add(this.Matieres);
             this.Controls.Add(this.Modules);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.Modifier);
             this.Controls.Add(this.Poids3);
             this.Controls.Add(this.Designation3);
             this.Controls.Add(this.codeM3);
@@ -497,8 +473,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Button Modifier;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DataGridView Modules;
         private System.Windows.Forms.DataGridView Matieres;
     }
