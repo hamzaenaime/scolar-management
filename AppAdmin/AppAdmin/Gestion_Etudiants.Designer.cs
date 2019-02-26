@@ -112,6 +112,7 @@
             // 
             // Filieres
             // 
+            this.Filieres.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Filieres.FormattingEnabled = true;
             this.Filieres.Location = new System.Drawing.Point(171, 258);
             this.Filieres.Name = "Filieres";
@@ -120,6 +121,7 @@
             // 
             // comboBox2
             // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
             "1",

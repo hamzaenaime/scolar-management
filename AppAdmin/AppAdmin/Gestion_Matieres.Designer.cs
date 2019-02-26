@@ -135,6 +135,7 @@
             // 
             // Niveau
             // 
+            this.Niveau.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Niveau.FormattingEnabled = true;
             this.Niveau.Items.AddRange(new object[] {
             "1",
@@ -147,6 +148,7 @@
             // 
             // Semestre
             // 
+            this.Semestre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Semestre.FormattingEnabled = true;
             this.Semestre.Items.AddRange(new object[] {
             "1",
@@ -158,6 +160,7 @@
             // 
             // codeF
             // 
+            this.codeF.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.codeF.FormattingEnabled = true;
             this.codeF.Location = new System.Drawing.Point(113, 105);
             this.codeF.Name = "codeF";
@@ -176,6 +179,7 @@
             // 
             // nombreMatieres
             // 
+            this.nombreMatieres.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.nombreMatieres.FormattingEnabled = true;
             this.nombreMatieres.Items.AddRange(new object[] {
             "1",
@@ -230,6 +234,7 @@
             // 
             // Poids1
             // 
+            this.Poids1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Poids1.FormattingEnabled = true;
             this.Poids1.Items.AddRange(new object[] {
             "0.1",
@@ -249,6 +254,7 @@
             // 
             // Poids2
             // 
+            this.Poids2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Poids2.FormattingEnabled = true;
             this.Poids2.Items.AddRange(new object[] {
             "0.1",
@@ -309,6 +315,7 @@
             // 
             // Poids3
             // 
+            this.Poids3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Poids3.FormattingEnabled = true;
             this.Poids3.Items.AddRange(new object[] {
             "0.1",
