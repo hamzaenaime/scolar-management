@@ -34,6 +34,11 @@ namespace AppAdmin
 
                 table.Columns.Add(c0);
                 table.Columns.Add(c1);
+                
+
+                c0.ReadOnly = true;
+                Filieres.AllowUserToAddRows = false;
+                Filieres.RowHeadersVisible = false;
 
 
                 //set datagridview buttons

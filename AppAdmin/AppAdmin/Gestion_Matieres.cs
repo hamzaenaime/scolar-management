@@ -153,6 +153,20 @@ namespace AppAdmin
                 FillTableMatieres();
                 FillTableModules();
             }
+            //module edit
+            if(e.ColumnIndex == 0)
+            {
+                string codeModule = Modules[2, e.RowIndex].Value.ToString();
+                string designation = Modules[3, e.RowIndex].Value.ToString();
+                string niveau = Modules[4, e.RowIndex].Value.ToString();
+                string nbr_matieres = Modules[5, e.RowIndex].Value.ToString();
+                string semestre = Modules[6, e.RowIndex].Value.ToString();
+                string codeFiliere = Modules[7, e.RowIndex].Value.ToString();
+                moduleDao.Update(new Module(codeModule,designation,niveau,nbr_matieres,semestre,codeFiliere), " codeModule='" + codeModule + "'");
+                MessageBox.Show("Module modifier");
+                FillTableMatieres();
+                FillTableModules();
+            }
         }
 
         private void nombreMatieres_SelectedIndexChanged(object sender, EventArgs e)
@@ -201,6 +215,8 @@ namespace AppAdmin
                     matiereDao.Insert(new Matiere(code_m3, designation3, poid3, code_m));
                 }
                 MessageBox.Show("Module ajouter");
+                FillTableMatieres();
+                FillTableModules();
             }
             else
             {
@@ -209,63 +225,7 @@ namespace AppAdmin
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            if (codeM.Text != "")
-            {
-                matiereDao.Delete(" codeModule='"+codeM.Text+"'");
-                moduleDao.Delete(" codeModule='"+ codeM.Text + "'");
-                MessageBox.Show("Module supprimer");
-            }
-        }
 
-        private void Modifier_Click(object sender, EventArgs e)
-        {
-            string code_m = codeM.Text;
-            string designation = Designation.Text;
-            string designation1 = Designation1.Text;
-            string designation2 = Designation2.Text;
-            string designation3 = Designation3.Text;
-            string code_f = codeF.Text;
-            string niveau = Niveau.Text;
-            string nombre_m = nombreMatieres.Text;
-            string semestre = Semestre.Text;
-            string code_m1 = codeM1.Text;
-            string code_m2 = codeM2.Text;
-            string code_m3 = codeM3.Text;
-            string poid1 = Poids1.Text;
-            string poid2 = Poids2.Text;
-            string poid3 = Poids3.Text;
-            if (code_m != "" && designation != "" && code_f != "" && semestre != "" && nombre_m != "" && niveau != "")
-            {
-                //etape 1 
-                //inserer module dans la table modules
-                moduleDao.Update(new Module(designation, niveau, nombre_m, semestre, code_f), " codeModule='"+code_m+"'");
-                //etape2
-                //inserer matieres
-                //matiere 1
-                if (code_m1 != "" && designation1 != "" && poid1 != "")
-                {
-                    matiereDao.Update(new Matiere(designation1, poid1, code_m)," codeModule='"+code_m+"'");
-                }
-                //matiere 2
-                if (code_m2 != "" && designation2 != "" && poid2 != "")
-                {
-                    matiereDao.Update(new Matiere(designation2, poid2, code_m), " codeModule='" + code_m + "'");
-                }
-                //matiere 3
-                if (code_m3 != "" && designation3 != "" && poid3 != "")
-                {
-                    matiereDao.Update(new Matiere(designation3, poid3, code_m), " codeModule='" + code_m + "'");
-                }
-                MessageBox.Show("Module Modifier");
-            }
-            else
-            {
-                MessageBox.Show("Remplire tous les champs nécissaire");
-            }
-
-        }
 
         private void Gestion_Matieres_Load(object sender, EventArgs e)
         {

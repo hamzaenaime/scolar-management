@@ -59,14 +59,14 @@
             // 
             this.codeF.Location = new System.Drawing.Point(191, 65);
             this.codeF.Name = "codeF";
-            this.codeF.Size = new System.Drawing.Size(139, 20);
+            this.codeF.Size = new System.Drawing.Size(237, 20);
             this.codeF.TabIndex = 2;
             // 
             // designation
             // 
-            this.designation.Location = new System.Drawing.Point(191, 120);
+            this.designation.Location = new System.Drawing.Point(191, 121);
             this.designation.Name = "designation";
-            this.designation.Size = new System.Drawing.Size(139, 20);
+            this.designation.Size = new System.Drawing.Size(237, 20);
             this.designation.TabIndex = 3;
             // 
             // Ajouter
@@ -84,9 +84,9 @@
             this.Filieres.BackgroundColor = System.Drawing.SystemColors.Window;
             this.Filieres.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Filieres.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Filieres.Location = new System.Drawing.Point(41, 173);
+            this.Filieres.Location = new System.Drawing.Point(21, 172);
             this.Filieres.Name = "Filieres";
-            this.Filieres.Size = new System.Drawing.Size(534, 200);
+            this.Filieres.Size = new System.Drawing.Size(747, 248);
             this.Filieres.TabIndex = 7;
             this.Filieres.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Filieres_CellContentClick);
             // 
