@@ -31,6 +31,7 @@ namespace AppAdmin
             LoadTableMatieres();
             FillTableMatieres();
             Modules.CellClick += Modules_CellClick;
+            Matieres.CellClick += Matieres_CellClick;
         }
 
         private void LoadTableModules()
@@ -166,6 +167,21 @@ namespace AppAdmin
                 MessageBox.Show("Module modifier");
                 FillTableMatieres();
                 FillTableModules();
+            }
+        }
+
+        private void Matieres_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //module edit
+            if (e.ColumnIndex == 0)
+            {
+                string codeMatiere = Matieres[1, e.RowIndex].Value.ToString();
+                string designation = Matieres[2, e.RowIndex].Value.ToString();
+                string poids = Matieres[3, e.RowIndex].Value.ToString();
+                string codeModule = Matieres[4, e.RowIndex].Value.ToString();
+                matiereDao.Update(new Matiere(codeMatiere,designation, poids, codeModule), " codeMat='" + codeMatiere + "'");
+                MessageBox.Show("Matiere modifier");
+                FillTableMatieres();
             }
         }
 
