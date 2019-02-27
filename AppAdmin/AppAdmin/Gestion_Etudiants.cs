@@ -12,9 +12,9 @@ using System.Windows.Forms;
 namespace AppAdmin {
     public partial class Gestion_Etudiants : Form {
         //filiere dao
-        private FiliereDAO filiereDao = new FiliereDAO("filieres");
+        private FiliereDAO filiereDao = new FiliereDAO("Filieres");
         //eleve dao
-        private EleveDAO eleveDao = new EleveDAO("eleves");
+        private EleveDAO eleveDao = new EleveDAO("Eleves");
         DataTable table = new DataTable();
         public Gestion_Etudiants() {
             InitializeComponent();
@@ -63,7 +63,7 @@ namespace AppAdmin {
 
         private void FillTable() {
             table.Clear();
-            List<Dictionary<string, string>> eleves = eleveDao.Select("select * from eleves");
+            List<Dictionary<string, string>> eleves = eleveDao.Select("select * from Eleves");
             foreach (Dictionary<string, string> element in eleves) {
                 DataRow row = table.NewRow();
                 row["code eleve"] = element["codeElev"];
@@ -78,7 +78,7 @@ namespace AppAdmin {
         }
 
         private void Gestion_Etudiants_Load(object sender, EventArgs e) {
-            List<Dictionary<string, string>> filieres = filiereDao.Select("select * from filieres");
+            List<Dictionary<string, string>> filieres = filiereDao.Select("select * from Filieres");
             //Console.WriteLine(filieres.Count);
             foreach (Dictionary<string, string> filiere in filieres) {
                 Filieres.Items.Add(filiere["codeF"]);
