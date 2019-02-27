@@ -61,9 +61,14 @@ namespace AppAdmin {
             }
         }
 
-        private void FillTable() {
+        private void FillTable(string codeE = "") {
             table.Clear();
-            List<Dictionary<string, string>> eleves = eleveDao.Select("select * from eleves");
+            string req = "select * from eleves ";
+            if (codeE != "") {
+                req += "where codeElev='" + codeE + "'";
+            }
+
+            List<Dictionary<string, string>> eleves = eleveDao.Select(req);
             foreach (Dictionary<string, string> element in eleves) {
                 DataRow row = table.NewRow();
                 row["code eleve"] = element["codeElev"];
@@ -101,26 +106,40 @@ namespace AppAdmin {
         }
         private void Etudiants_CellClick(object sender, DataGridViewCellEventArgs e) {
             //modifier handler
-            if (e.ColumnIndex == 0) {/*
-                // get codef
-                string codef = Etudiants[2, e.RowIndex].Value.ToString();
-                // get designation
-                string designation = Etudiants[3, e.RowIndex].Value.ToString();
+            if (e.ColumnIndex == 0) {
+                string codeElev = Etudiants[2, e.RowIndex].Value.ToString();
+                string nom = Etudiants[3, e.RowIndex].Value.ToString();
+                string prenom = Etudiants[4, e.RowIndex].Value.ToString();
+                string niveau = Etudiants[5, e.RowIndex].Value.ToString();
+                string codeF = Etudiants[6, e.RowIndex].Value.ToString();
+
                 //update 
-                eleveDao.Update(new Eleve(codef, designation), " codeF='" + codef + "'");
-                MessageBox.Show("Filiere Modifier");
-                FillTable();*/
+                eleveDao.Update(new Eleve(nom, prenom, niveau, codeElev, codeF), " codeElev='" + codeElev + "'");
+                MessageBox.Show("Etudiant Modifier");
+                FillTable();
             }
             //supprimer handler
             if (e.ColumnIndex == 1) {
                 // get codef
-                string codef = Etudiants[2, e.RowIndex].Value.ToString();
+                string codeElev = Etudiants[2, e.RowIndex].Value.ToString();
                 // delete
-                eleveDao.Delete("codeF='" + codef + "'");
-                MessageBox.Show(codef + " Filiere supprimer");
+                eleveDao.Delete("codeElev='" + codeElev + "'");
+                MessageBox.Show(" Etudiant supprimer");
                 FillTable();
             }
         }
 
+        private void button3_Click(object sender, EventArgs e) {
+            string codeE = CodeEleve.Text;
+            FillTable(codeE);
+        }
+
+        private void button1_Click(object sender, EventArgs e) {
+            CodeEleve.Text = "";
+            Niveau.Text = "";
+            Filieres.Text = "";
+            Nom.Text = "";
+            Prenom.Text = "";
+        }
     }
 }
