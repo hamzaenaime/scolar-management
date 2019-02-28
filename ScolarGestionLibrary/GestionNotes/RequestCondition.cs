@@ -12,7 +12,9 @@ namespace GestionNotes
 
         public string Equal(Object value)
         {
-            return "="+value ;
+            if (value is int)
+                return " = " + value ;
+            return " =  '" + value + "'"; 
         }
 
         public string ForlNnotlN(Object[]  values )

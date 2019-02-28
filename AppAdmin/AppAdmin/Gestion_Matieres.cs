@@ -14,11 +14,11 @@ namespace AppAdmin
     public partial class Gestion_Matieres : Form
     {
         //module dao
-        private ModuleDAO moduleDao = new ModuleDAO("modules");
+        private ModuleDAO moduleDao = new ModuleDAO("Modules");
         //matiere dao
-        private MatiereDAO matiereDao = new MatiereDAO("matieres");
+        private MatiereDAO matiereDao = new MatiereDAO("Matieres");
         //filiere dao
-        private FiliereDAO filiereDao = new FiliereDAO("filieres");
+        private FiliereDAO filiereDao = new FiliereDAO("Filieres");
         //data table matieres
         DataTable matieres = new DataTable();
         //data table modules
@@ -78,7 +78,7 @@ namespace AppAdmin
         private void FillTableModules()
         {
             modules.Clear();
-            List<Dictionary<string, string>> filieres = moduleDao.Select("select * from modules");
+            List<Dictionary<string, string>> filieres = moduleDao.Select("select * from Modules");
             foreach (Dictionary<string, string> element in filieres)
             {
                 DataRow row = modules.NewRow();
@@ -128,7 +128,7 @@ namespace AppAdmin
         private void FillTableMatieres()
         {
             matieres.Clear();
-            List<Dictionary<string, string>> les_matieres = matiereDao.Select("select * from matieres");
+            List<Dictionary<string, string>> les_matieres = matiereDao.Select("select * from Matieres");
             foreach (Dictionary<string, string> element in les_matieres)
             {
                 DataRow row = matieres.NewRow();

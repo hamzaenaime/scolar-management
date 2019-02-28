@@ -13,7 +13,7 @@ namespace AppAdmin
 {
     public partial class Gestion_Filieres : Form
     {
-        private FiliereDAO dao = new FiliereDAO("filieres");
+        private FiliereDAO dao = new FiliereDAO("Filieres");
         DataTable table = new DataTable();
         public Gestion_Filieres()
         {
@@ -60,7 +60,7 @@ namespace AppAdmin
         private void FillTable()
         {
             table.Clear();
-            List<Dictionary<string, string>> filieres = dao.Select("select * from filieres");
+            List<Dictionary<string, string>> filieres = dao.Select("select * from Filieres");
             foreach (Dictionary<string, string> element in filieres)
             {
                 DataRow row = table.NewRow();
