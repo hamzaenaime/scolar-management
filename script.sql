@@ -40,16 +40,16 @@ CREATE TABLE IF NOT EXISTS `project`.`Eleves` (
   `nom` VARCHAR(45) NULL,
   `prenom` VARCHAR(45) NULL,
   `niveau` INT NULL,
-  `dateInsc` DATETIME NULL,
+  `dateInsc` timestamp NULL DEFAULT current_timestamp,
   `Elevescol` VARCHAR(45) NULL,
-  `anneeDiplom` DATETIME NULL,
+  `anneeDiplom` timestamp NULL,
   `code_Fil` VARCHAR(6) NOT NULL,
   PRIMARY KEY (`codeElev`),
   INDEX `code_Fil_idx` (`code_Fil` ASC),
   CONSTRAINT `code_Fil_fk_e`
     FOREIGN KEY (`code_Fil`)
     REFERENCES `project`.`Filieres` (`codeF`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `project`.`Modules` (
   CONSTRAINT `code_Fil_fk_m`
     FOREIGN KEY (`code_Fil`)
     REFERENCES `project`.`Filieres` (`codeF`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `project`.`Matieres` (
   CONSTRAINT `codeModule_fk`
     FOREIGN KEY (`codeModule`)
     REFERENCES `project`.`Modules` (`codeModule`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
@@ -110,12 +110,12 @@ CREATE TABLE IF NOT EXISTS `project`.`Notes` (
   CONSTRAINT `codeElev_fk_n`
     FOREIGN KEY (`codeElev`)
     REFERENCES `project`.`Eleves` (`codeElev`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION,
   CONSTRAINT `codeMat_fk_n`
     FOREIGN KEY (`codeMat`)
     REFERENCES `project`.`Matieres` (`codeMat`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
@@ -135,12 +135,12 @@ CREATE TABLE IF NOT EXISTS `project`.`Moyennes` (
   CONSTRAINT `codeElev_fk_m`
     FOREIGN KEY (`codeElev`)
     REFERENCES `project`.`Eleves` (`codeElev`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION,
   CONSTRAINT `codeFil_fk_m`
     FOREIGN KEY (`codeFil`)
     REFERENCES `project`.`Filieres` (`codeF`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
@@ -159,12 +159,12 @@ CREATE TABLE IF NOT EXISTS `project`.`Absences` (
   CONSTRAINT `codeElev_fk_a`
     FOREIGN KEY (`codeElev`)
     REFERENCES `project`.`Eleves` (`codeElev`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION,
   CONSTRAINT `codeMat_fk_a`
     FOREIGN KEY (`codeMat`)
     REFERENCES `project`.`Matieres` (`codeMat`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 

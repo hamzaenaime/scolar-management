@@ -61,11 +61,11 @@ namespace AppAdmin {
             }
         }
 
-        private void FillTable(string codeE = "") {
+        private void FillTable(string conditions = "true") {
             table.Clear();
             string req = "select * from Eleves ";
-            if (codeE != "") {
-                req += "where codeElev='" + codeE + "'";
+            if (conditions != "true") {
+                req += " where " + conditions;
             }
 
             List<Dictionary<string, string>> eleves = eleveDao.Select(req);
@@ -131,7 +131,28 @@ namespace AppAdmin {
 
         private void button3_Click(object sender, EventArgs e) {
             string codeE = CodeEleve.Text;
-            FillTable(codeE);
+            string nom = Nom.Text;
+            string prenom = Prenom.Text;
+            string filiere = Filieres.Text;
+            string niveau = Niveau.Text;
+            string conditions = "";
+            if (codeE != "") {
+                conditions += "codeElev='" + codeE + "' and ";
+            }
+            if (nom != "") {
+                conditions += "nom='" + nom + "' and ";
+            }
+            if (prenom != "") {
+                conditions += "prenom='" + prenom + "' and ";
+            }
+            if (filiere != "") {
+                conditions += "code_Fil='" + filiere + "' and ";
+            }
+            if (niveau != "") {
+                conditions += "niveau=" + niveau + " and ";
+            }
+            conditions += "true";
+            FillTable(conditions);
         }
 
         private void button1_Click(object sender, EventArgs e) {

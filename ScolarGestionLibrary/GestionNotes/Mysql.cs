@@ -1,13 +1,11 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
-using MySql.Data.MySqlClient;
 using System.Data;
+using System.Windows.Forms;
 
-namespace GestionNotes
-{
-    public abstract class Mysql
-    {
+namespace GestionNotes {
+    public abstract class Mysql {
         private string BD;
         private string Pass;
         private string User;
@@ -17,8 +15,7 @@ namespace GestionNotes
         private MySqlDataReader rs;
 
 
-        protected Mysql(string server,string BD, string User,string Pass )
-        {
+        protected Mysql(string server, string BD, string User, string Pass) {
             this.BD = BD;
             this.Pass = Pass;
             this.User = User;
@@ -27,14 +24,11 @@ namespace GestionNotes
         }
 
 
-        public virtual List<Dictionary<string, string>> Get(string sql)
-        {
+        public virtual List<Dictionary<string, string>> Get(string sql) {
 
 
-            if (this.OpenConnection() == true)
-            {
-                try
-                {
+            if (OpenConnection() == true) {
+                try {
                     DataTable schemaTable;
                     //create mysql command
                     st = new MySqlCommand();
@@ -54,12 +48,10 @@ namespace GestionNotes
                     //Retrieve column schema into a DataTable.
                     schemaTable = rs.GetSchemaTable();
 
-                    while (rs.Read())
-                    {
+                    while (rs.Read()) {
                         int i = 0;
-                        Dictionary<string,string> column = new Dictionary<string, string>();
-                        foreach (DataRow myField in schemaTable.Rows)
-                        {
+                        Dictionary<string, string> column = new Dictionary<string, string>();
+                        foreach (DataRow myField in schemaTable.Rows) {
                             column.Add(myField["ColumnName"].ToString(), rs[i].ToString());
                             i++;
 
@@ -75,9 +67,7 @@ namespace GestionNotes
                     return result;
 
 
-                }
-                catch (Exception e)
-                {
+                } catch (Exception e) {
                     MessageBox.Show(e.Message);
                 }
 
@@ -85,17 +75,14 @@ namespace GestionNotes
             return null;
         }
 
-        public int Up(string sql)
-        {
-            if (this.OpenConnection() == true)
-            {
-                try
-                {
+        public int Up(string sql) {
+            if (OpenConnection() == true) {
+                try {
                     //create mysql command
-                    st = new MySqlCommand(sql,con);
+                    st = new MySqlCommand(sql, con);
                     //Assign the query using CommandText
 
-                   
+
 
                     //Execute query
                     st.ExecuteNonQuery();
@@ -107,9 +94,7 @@ namespace GestionNotes
 
 
 
-                }
-                catch(Exception e)
-                {
+                } catch (Exception e) {
                     MessageBox.Show(e.Message);
                 }
 
@@ -118,30 +103,24 @@ namespace GestionNotes
 
         }
 
-        private void Initialize()
-        {
+        private void Initialize() {
             string connectionString;
-            connectionString = @"Server="+server+";Database="+BD+";Uid=" + User+";Pwd="+Pass+";";
+            connectionString = @"Server=" + server + ";Database=" + BD + ";Uid=" + User + ";Pwd=" + Pass + ";";
 
             con = new MySqlConnection(connectionString);
         }
 
-        private bool OpenConnection()
-        {
-            try
-            {
+        private bool OpenConnection() {
+            try {
                 con.Open();
                 return true;
-            }
-            catch (MySqlException ex)
-            {
+            } catch (MySqlException ex) {
                 //When handling errors, you can your application's response based 
                 //on the error number.
                 //The two most common error numbers when connecting are as follows:
                 //0: Cannot connect to server.
                 //1045: Invalid user name and/or password.
-                switch (ex.Number)
-                {
+                switch (ex.Number) {
                     case 0:
                         MessageBox.Show(ex.Message);
                         break;
@@ -155,15 +134,11 @@ namespace GestionNotes
         }
 
         //Close connection
-        private bool CloseConnection()
-        {
-            try
-            {
+        private bool CloseConnection() {
+            try {
                 con.Close();
                 return true;
-            }
-            catch (MySqlException ex)
-            {
+            } catch (MySqlException ex) {
                 MessageBox.Show(ex.Message);
                 return false;
             }

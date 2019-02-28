@@ -1,66 +1,58 @@
-﻿using System;
+﻿using GestionNotes;
+//using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using GestionNotes;
-using MySql.Data.MySqlClient;
 
-namespace AppAdmin
-{
-    class Program
-    {
-        public static string connectionString = @"server=192.168.1.4;user id=root;database=project";
-        public static MySqlConnection con = new MySqlConnection(connectionString);
+namespace AppAdmin {
+    class Program {
+        /* public static string connectionString = @"server=192.168.1.4;user id=root;database=project";
+         public static MySqlConnection con = new MySqlConnection(connectionString);
 
-        private static  bool OpenConnection()
-        {
-            try
-            {
-                con.Open();
-                return true;
-            }
-            catch (MySqlException ex)
-            {
-                //When handling errors, you can your application's response based 
-                //on the error number.
-                //The two most common error numbers when connecting are as follows:
-                //0: Cannot connect to server.
-                //1045: Invalid user name and/or password.
-                switch (ex.Number)
-                {
-                    case 0:
-                        MessageBox.Show(ex.Message);
-                        break;
+         private static bool OpenConnection() {
+             try {
+                 con.Open();
+                 return true;
+             } catch (MySqlException ex) {
+                 //When handling errors, you can your application's response based 
+                 //on the error number.
+                 //The two most common error numbers when connecting are as follows:
+                 //0: Cannot connect to server.
+                 //1045: Invalid user name and/or password.
+                 switch (ex.Number) {
+                     case 0:
+                         MessageBox.Show(ex.Message);
+                         break;
 
-                    case 1045:
-                        MessageBox.Show("Invalid username/password, please try again");
-                        break;
-                }
-                return false;
-            }
-        }
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-        static void Main()
-        {
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Container());
+                     case 1045:
+                         MessageBox.Show("Invalid username/password, please try again");
+                         break;
+                 }
+                 return false;
+             }
+         }
+         /// <summary>
+         /// The main entry point for the application.
+         /// </summary>
+         /// */
+        static void Main() {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Container());
 
-            RequestCondition RQ = new RequestCondition();
+            /*RequestCondition RQ = new RequestCondition();
             string connectionString;
             string server = "192.168.1.4";
             string BD = "project";
             string User = "root";
-            Object[] t = { "haha",2,3,4};
+            Object[] t = { "haha", 2, 3, 4 };
             connectionString = @"server=192.168.1.4;user id=root;database=project";
-            string sql = "select * from Filieres where codef "+ RQ.Equal("g3ei");
+            string sql = "select * from Filieres where codef " + RQ.Equal("g3ei");
             Console.WriteLine(sql);
-            if (OpenConnection())
-            {
+            if (OpenConnection()) {
                 Console.WriteLine("connecion open");
             }
             //create mysql command
@@ -83,12 +75,12 @@ namespace AppAdmin
             //{
             //    Console.WriteLine(myField["ColumnName"].ToString(), rs[i].ToString());
             //    i++;
+            */
 
 
-        
 
 
-            }
+        }
 
     }
 }
