@@ -14,7 +14,7 @@ namespace GestionNotes
 
         static DAO()
         {
-            param_co[0] = "192.168.1.4";
+            param_co[0] = "10.42.0.1";
             param_co[1] = "project";
             param_co[2] = "root";
             param_co[3] = "";
