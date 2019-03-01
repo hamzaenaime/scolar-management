@@ -34,7 +34,6 @@
             this.designation = new System.Windows.Forms.TextBox();
             this.Ajouter = new System.Windows.Forms.Button();
             this.Filieres = new System.Windows.Forms.DataGridView();
-            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             ((System.ComponentModel.ISupportInitialize)(this.Filieres)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,19 +90,6 @@
             this.Filieres.TabIndex = 7;
             this.Filieres.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Filieres_CellContentClick);
             // 
-            // materialLabel1
-            // 
-            this.materialLabel1.AutoSize = true;
-            this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(190, 30);
-            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(128, 19);
-            this.materialLabel1.TabIndex = 8;
-            this.materialLabel1.Text = "Ajouter une filiere";
-            // 
             // Gestion_Filieres
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -112,7 +98,6 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
-            this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.Filieres);
             this.Controls.Add(this.Ajouter);
             this.Controls.Add(this.designation);
@@ -137,6 +122,5 @@
         private System.Windows.Forms.TextBox designation;
         private System.Windows.Forms.Button Ajouter;
         private System.Windows.Forms.DataGridView Filieres;
-        private MaterialSkin.Controls.MaterialLabel materialLabel1;
     }
 }
