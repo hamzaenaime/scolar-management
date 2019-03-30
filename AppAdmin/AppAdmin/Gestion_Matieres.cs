@@ -245,7 +245,7 @@ namespace AppAdmin
 
         private void Gestion_Matieres_Load(object sender, EventArgs e)
         {
-            List<Dictionary<string, string>> filieres = filiereDao.Select("select * from filieres");
+            List<Dictionary<string, string>> filieres = filiereDao.Select("select * from Filieres");
             //Console.WriteLine(filieres.Count);
             foreach (Dictionary<string, string> filiere in filieres)
             {
