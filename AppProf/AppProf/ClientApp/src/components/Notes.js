@@ -8,7 +8,7 @@ export class Notes extends Component {
         super(props);
         this.state = { forecasts: [], loading: true };
 
-        fetch('api/Notes/LesNotes')
+        fetch('api/MesNotes/LesNotes')
             .then(response => response.json())
             .then(data => {
                 console.log(data);
