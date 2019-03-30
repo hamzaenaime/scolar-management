@@ -31,11 +31,11 @@ namespace GestionNotes {
                 try {
                     DataTable schemaTable;
                     //create mysql command
-                    st = new MySqlCommand();
+                    st = new MySqlCommand(sql, con);
                     //Assign the query using CommandText
-                    st.CommandText = sql;
+                    //st.CommandText = sql;
                     //Assign the connection using Connection
-                    st.Connection = con;
+                    //st.Connection = con;
 
                     //result 
 
@@ -85,10 +85,11 @@ namespace GestionNotes {
 
 
                     //Execute query
-                    st.ExecuteNonQuery();
+                    int c = st.ExecuteNonQuery();
 
                     //close connection
                     CloseConnection();
+                    return c;
 
                     //return result;
 
