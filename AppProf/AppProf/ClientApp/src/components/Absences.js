@@ -19,10 +19,13 @@ export class Absences extends Component {
             <table className='table'>
                 <thead>
                     <tr>
-                        <th>Date</th>
-                        <th>Temp. (C)</th>
-                        <th>Temp. (F)</th>
-                        <th>Summary</th>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>Filiere</th>
+                        <th>Module</th>
+                        <th>Matiere</th>
+                        <th>absences</th>
+                        <th>Total absences</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,8 +49,8 @@ export class Absences extends Component {
 
         return (
             <div>
+
                 <h1>Absences</h1>
-                <p>This component demonstrates fetching data from the server.</p>
                 {contents}
             </div>
         );
