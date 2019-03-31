@@ -6,13 +6,13 @@ export class Notes extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { notes: [], searched: "", loading: true, code: "aa", matiere: "aa" };
+        this.state = { notes: [], searched: "", loading: true, code: "", matiere: "", note: 0 };
         /*
         fetch('api/MesNotes/LesNotes')
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-                this.setState({ forecasts: data, loading: false });
+                this.setState({ notes: data, loading: false });
             });*/
         this.getData();
     }
@@ -26,26 +26,32 @@ export class Notes extends Component {
         this.state.loading = false;
     }
     handleCode = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
-        });
+        this.setState({ code: e.target.value });
     }
     handleMat = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
-        });
+        this.setState({ matiere: e.target.value });
+    }
+
+    handleNote = (e) => {
+        let note;
+        if (e.target.value !== "") {
+            note = parseFloat(e.target.value);
+        }
+        this.setState({ note: note });
     }
 
     handleSubmit = (e) => {
+        e.preventDefault();
         console.log(this.state);
     }
 
     handleSearch = (e) => {
         this.state.searched = e.target.value;
         this.setState({ state: this.state });
+        console.log(this.state);
     }
 
-    static renderNotesFrom() {
+    renderNotesFrom = () => {
         const notes = [];
         for (let i = 0; i <= 20; i = i + 0.25) {
             notes.push(<option key={i} value="Advertise">{i}</option>);
@@ -53,15 +59,10 @@ export class Notes extends Component {
         return (
             <form onSubmit={this.handleSubmit}>
                 <ul className="form-style-1">
-                    <li><label>Code Eleve  <span className="required">*</span></label><input type="text" name="code" className="field-divided" placeholder="Code Eleve ..." onChange={this.handleCode} required /></li>
-                    <li><label>Code Matiere  <span className="required">*</span></label><input type="text" name="matiere" className="field-divided" placeholder="Code Matiere ..." onChange={this.handleMat} required /></li>
+                    <li><label>Code Eleve  <span className="required">*</span></label><input type="text" value={this.state.code} name="code" className="field-divided" placeholder="Code Eleve ..." onChange={this.handleCode} required /></li>
+                    <li><label>Code Matiere  <span className="required">*</span></label><input type="text" value={this.state.matiere} name="matiere" className="field-divided" placeholder="Code Matiere ..." onChange={this.handleMat} required /></li>
+                    <li><label>Code Matiere  <span className="required">*</span></label><input type="number" step="0.1" min="0" max="20" value={this.state.note} name="note" className="field-divided" placeholder="Code Matiere ..." onChange={this.handleNote} required /></li>
 
-                    <li>
-                        <label>La Note <span className="required">*</span></label>
-                        <select name="field5" className="field-select">
-                            {notes}
-                        </select>
-                    </li>
                     <li>
                         <input type="submit" value="Inserer" />
                     </li>
@@ -112,7 +113,7 @@ export class Notes extends Component {
         let contents = this.state.loading
             ? <p><em>Loading...</em></p>
             : Notes.renderForecastsTable(data);
-        let form = Notes.renderNotesFrom();
+        let form = this.renderNotesFrom();
 
         return (
             <div>
@@ -121,7 +122,7 @@ export class Notes extends Component {
                 {form}
                 <hr />
                 <div className="form-style-1">
-                    <label>Rechercher un eleve avec son nom  <span className="required">*</span></label><input type="text" name="rechercher" className="field-divided" placeholder="nom ..." onChange={this.handleSearch} required />
+                    <label>Rechercher un eleve avec son nom  <span className="required">*</span></label><input type="text" name="rechercher" className="field-divided" placeholder="nom ..." onChange={this.handleSearch} />
                 </div>
                 <p>les notes :</p>
                 {contents}

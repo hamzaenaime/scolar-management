@@ -11,25 +11,14 @@ namespace AppProf.Controllers {
     //[Route("api/[controller]")]
     public class MesNotesController : Controller {
         //private EleveDAO eleveDAO = new EleveDAO("eleves");
+        /*
         [Route("api/MesNotes/LesNotes")]
         [HttpGet]
-        public IEnumerable<NotesTable> LesNotes() {
-            //public Dictionary<string, string> LesNotes() {
-            return Enumerable.Range(1, 5).Select(index => new NotesTable());
-            //Dictionary<string, string> eleves = new Dictionary<string, string>();
-            //eleves.Add("Nom", "ENAIME");
-            //eleves.Add("Prenom", "HAMZA");
-            //eleves.Add("CodeFil", "GINF");
-            //return eleves;
-            //return Enumerable.Range(1, 5).Select(index => new NotesTable {
-            //    Nom = "Hamza",
-            //    Prenom = "ENAIME",
-            //    CodeFil = "GINF"
-            //});
-            //return new NotesTable().Data.ElementAt(0);
-            //return new Dictionary<string, string>();//.Add("hello", "world");
-
+        public IEnumerable<Dictionary<string, string>> LesNotes() {
+            IEnumerable<Dictionary<string, string>> data;
+            return Enumerable.Range(1, 5).Select(index => new Dictionary<string, string> { key = index.ToString(), nom = "Enaime" + index, prenom = "Hamza" + index, filiere = "GINF", module = "Programmation", matiere = "C#", note = "18" });
         }
+        */
 
         public class NotesTable {
             //private EleveDAO eleveDAO = null;
