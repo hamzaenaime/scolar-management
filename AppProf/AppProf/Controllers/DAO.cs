@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace GestionNotes {
+namespace AppProf.Controllers {
 
 
 
@@ -11,7 +11,7 @@ namespace GestionNotes {
         private string table;
 
         static DAO() {
-            param_co[0] = "localhost";
+            param_co[0] = "10.42.0.1";
             param_co[1] = "project";
             param_co[2] = "root";
             param_co[3] = "";

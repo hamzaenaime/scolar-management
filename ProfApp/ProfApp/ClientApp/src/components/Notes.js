@@ -6,7 +6,7 @@ export class Notes extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { notes: [], searched: "", loading: true, code: "", matiere: "", note: 0 };
+        this.state = { notes: [], searched: "", loading: true, code: "", matiere: "", note: 0, filieres: [] };
 
         fetch('api/MesNotes/LesNotes')
             .then(response => response.json())
@@ -14,7 +14,15 @@ export class Notes extends Component {
                 console.log(data);
                 //this.setState({ notes: data, loading: false });
             });
+        fetch('api/MesNotes/filieres')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data: );
+                this.setState({ filieres: data });
+                this.state.filieres = data;
+            });
         this.getData();
+        console.log(this.state.filieres);
     }
 
     getData = () => {
@@ -56,16 +64,23 @@ export class Notes extends Component {
         for (let i = 0; i <= 20; i = i + 0.25) {
             notes.push(<option key={i} value="Advertise">{i}</option>);
         }
+        const lesfilieres = [];
+        for (let i = 0; i <= this.state.filieres.length; i++) {
+            notes.push(<option key={i} value="Advertise">{this.state.filieres[i]}</option>);
+        }
         return (
             <form onSubmit={this.handleSubmit}>
                 <ul className="form-style-1">
                     <li><label>Code Eleve  <span className="required">*</span></label><input type="text" value={this.state.code} name="code" className="field-divided" placeholder="Code Eleve ..." onChange={this.handleCode} required /></li>
                     <li><label>Code Matiere  <span className="required">*</span></label><input type="text" value={this.state.matiere} name="matiere" className="field-divided" placeholder="Code Matiere ..." onChange={this.handleMat} required /></li>
-                    <li><label>Code Matiere  <span className="required">*</span></label><input type="number" step="0.1" min="0" max="20" value={this.state.note} name="note" className="field-divided" placeholder="Code Matiere ..." onChange={this.handleNote} required /></li>
+                    <li><label>La Note  <span className="required">*</span></label><input type="number" step="0.1" min="0" max="20" value={this.state.note} name="note" className="field-divided" placeholder="Code Matiere ..." onChange={this.handleNote} required /></li>
 
                     <li>
                         <input type="submit" value="Inserer" />
                     </li>
+                    <select>
+                        {lesfilieres}
+                    </select>
                 </ul>
             </form>
         );
@@ -78,9 +93,6 @@ export class Notes extends Component {
                     <tr>
                         <th>Nom</th>
                         <th>Prenom</th>
-                        <th>Filiere</th>
-                        <th>Module</th>
-                        <th>Matiere</th>
                         <th>Note</th>
                     </tr>
                 </thead>
@@ -89,9 +101,6 @@ export class Notes extends Component {
                         <tr key={note.key}>
                             <td>{note.nom}</td>
                             <td>{note.prenom}</td>
-                            <td>{note.filiere}</td>
-                            <td>{note.module}</td>
-                            <td>{note.matiere}</td>
                             <td>{note.note}</td>
                         </tr>
                     )}

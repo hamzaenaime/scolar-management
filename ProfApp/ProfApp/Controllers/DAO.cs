@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace GestionNotes {
+namespace AppProf.Controllers {
 
 
 
