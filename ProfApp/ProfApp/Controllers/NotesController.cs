@@ -16,6 +16,7 @@ namespace AppProf.Controllers {
         private NoteDAO noteDAO = null;
         public List<Dictionary<string, string>> Data = new List<Dictionary<string, string>>();
 
+        //get all notes
         [Route("api/lesnotes")]
         [HttpGet]
         public IEnumerable<LesNotes> notes() {
@@ -44,6 +45,96 @@ namespace AppProf.Controllers {
             });
         }
 
+        //get all notes of a matiere
+        [Route("api/lesnotes/matiere/{idMat}")]
+        [HttpGet]
+        public IEnumerable<LesNotes> notesMat(string idMat) {
+            eleveDAO = new EleveDAO("eleves");
+            string req = "select e.nom,e.prenom,ma.codeMat,ma.codeModule,mo.code_Fil,n.note "
+                            + "from eleves e,matieres ma, modules mo ,notes n "
+                            + "where ma.codeModule = mo.codeModule "
+                            + "and n.codeElev = e.codeElev "
+                            + "and n.codeMat = ma.codeMat and n.codeMat='" + idMat + "' ";
+            List<Dictionary<string, string>> data = new List<Dictionary<string, string>>();
+            data = eleveDAO.Select(req);
+            List<LesNotes> les_notes = new List<LesNotes>();
+            foreach (Dictionary<string, string> elt in data) {
+                LesNotes m = new LesNotes(elt["nom"], elt["prenom"], elt["codeMat"],
+                    elt["codeModule"], elt["code_Fil"], elt["note"]);
+                les_notes.Add(m);
+            }
+            int length = les_notes.Count;
+            return Enumerable.Range(0, length).Select(index => new LesNotes {
+                Nom = les_notes[index].Nom,
+                Prenom = les_notes[index].Prenom,
+                CodeMat = les_notes[index].CodeMat,
+                CodeModule = les_notes[index].CodeModule,
+                CodeFiliere = les_notes[index].CodeFiliere,
+                Note = les_notes[index].Note
+            });
+        }
+
+        //get all notes of a module
+        [Route("api/lesnotes/module/{idMod}")]
+        [HttpGet]
+        public IEnumerable<LesNotes> notesMod(string idMod) {
+            eleveDAO = new EleveDAO("eleves");
+            string req = "select e.nom,e.prenom,ma.codeMat,ma.codeModule,mo.code_Fil,n.note "
+                            + "from eleves e,matieres ma, modules mo ,notes n "
+                            + "where ma.codeModule = mo.codeModule "
+                            + "and n.codeElev = e.codeElev "
+                            + "and n.codeMat = ma.codeMat and mo.codeModule='" + idMod + "' ";
+            List<Dictionary<string, string>> data = new List<Dictionary<string, string>>();
+            data = eleveDAO.Select(req);
+            List<LesNotes> les_notes = new List<LesNotes>();
+            foreach (Dictionary<string, string> elt in data) {
+                LesNotes m = new LesNotes(elt["nom"], elt["prenom"], elt["codeMat"],
+                    elt["codeModule"], elt["code_Fil"], elt["note"]);
+                les_notes.Add(m);
+            }
+            int length = les_notes.Count;
+            return Enumerable.Range(0, length).Select(index => new LesNotes {
+                Nom = les_notes[index].Nom,
+                Prenom = les_notes[index].Prenom,
+                CodeMat = les_notes[index].CodeMat,
+                CodeModule = les_notes[index].CodeModule,
+                CodeFiliere = les_notes[index].CodeFiliere,
+                Note = les_notes[index].Note
+            });
+        }
+
+        //get all notes of a filiere
+        [Route("api/lesnotes/filiere/{idFil}")]
+        [HttpGet]
+        public IEnumerable<LesNotes> notesFil(string idFil) {
+            eleveDAO = new EleveDAO("eleves");
+            string req = "select e.nom,e.prenom,ma.codeMat,ma.codeModule,mo.code_Fil,n.note "
+                            + "from eleves e,matieres ma, modules mo ,notes n "
+                            + "where ma.codeModule = mo.codeModule "
+                            + "and n.codeElev = e.codeElev "
+                            + "and n.codeMat = ma.codeMat and mo.code_Fil='" + idFil + "' ";
+            List<Dictionary<string, string>> data = new List<Dictionary<string, string>>();
+            data = eleveDAO.Select(req);
+            List<LesNotes> les_notes = new List<LesNotes>();
+            foreach (Dictionary<string, string> elt in data) {
+                LesNotes m = new LesNotes(elt["nom"], elt["prenom"], elt["codeMat"],
+                    elt["codeModule"], elt["code_Fil"], elt["note"]);
+                les_notes.Add(m);
+            }
+            int length = les_notes.Count;
+            return Enumerable.Range(0, length).Select(index => new LesNotes {
+                Nom = les_notes[index].Nom,
+                Prenom = les_notes[index].Prenom,
+                CodeMat = les_notes[index].CodeMat,
+                CodeModule = les_notes[index].CodeModule,
+                CodeFiliere = les_notes[index].CodeFiliere,
+                Note = les_notes[index].Note
+            });
+        }
+
+
+
+        //insert a note in DB
         [Route("api/addnote/{idEtd}/{idMat}/{note}")]
         [HttpGet]
         public string AddNote(string idEtd, string idMat, string note) {
@@ -51,6 +142,8 @@ namespace AppProf.Controllers {
             noteDAO.Insert(new Note(idEtd, idMat, note));
             return idEtd + "  " + idMat + "   " + note + "  " + "added succefully!";
         }
+
+        // get filieres
         [Route("api/filieres")]
         [HttpGet]
         public List<string> filieres() {
@@ -65,6 +158,7 @@ namespace AppProf.Controllers {
             return les_filieres;
         }
 
+        // get modules
         [Route("api/modules")]
         [HttpGet]
         public IEnumerable<Module> modules() {
@@ -88,6 +182,7 @@ namespace AppProf.Controllers {
             });
         }
 
+        //get matieres
         [Route("api/matieres")]
         [HttpGet]
         public IEnumerable<Matiere> matieres() {
@@ -109,6 +204,8 @@ namespace AppProf.Controllers {
                 Code_matiere = les_matieres[index].Code_matiere
             });
         }
+
+        //class generic
         public class LesNotes {
             private string nom;
             private string prenom;

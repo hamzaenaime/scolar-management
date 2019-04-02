@@ -6,12 +6,8 @@ export class Notes extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { notes: [], searched: "", loading: true, code: "", matiere: "", note: 0, filieres: [], matieres: [], modules: [] };
-        fetch('api/LesNotes')
-            .then(response => response.json())
-            .then(data => {
-                this.setState({ notes: data, loading: false });
-            });
+        this.state = { notes: [], searched: "", loading: true, code: "", matiere: "", note: 0, filieres: [], matieres: [], modules: [], mat: "Tous", mod: "Tous", fil: "Tous" };
+        this.fillTable();
         fetch('api/filieres')
             .then(response => response.json())
             .then(data => {
@@ -40,14 +36,19 @@ export class Notes extends Component {
                 this.setState({ matieres: lesmatieres });
             });
     }
-
+    fillTable = () => {
+        fetch('api/LesNotes')
+            .then(response => response.json())
+            .then(data => {
+                this.setState({ notes: data, loading: false });
+            });
+    }
     handleCode = (e) => {
         this.setState({ code: e.target.value });
     }
     handleMat = (e) => {
         this.setState({ matiere: e.target.value });
     }
-
     handleNote = (e) => {
         let note;
         if (e.target.value !== "") {
@@ -60,14 +61,32 @@ export class Notes extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
+        this.setState({ code: "", matiere: "", note: 0 });
         fetch("api/addnote/" + this.state.code + "/" + this.state.matiere + "/" + this.state.note)
-            .then(res => console.log(res));
+            .then(res => {
+                this.fillTable();
+                this.setState({ code: "", matiere: "", note: 0 });
+            });
+
 
     }
 
     handleSearch = (e) => {
         this.state.searched = e.target.value;
         this.setState({ state: this.state });
+    }
+
+    handleMat = (e) => {
+        this.setState({ mat: e.target.value });
+        //this.setState({ state: this.state });
+    }
+    handleMod = (e) => {
+        this.setState({ mod: e.target.value });
+        //.setState({ state: this.state });
+    }
+    handleFil = (e) => {
+        this.setState({ fil: e.target.value });
+        //this.setState({ state: this.state });
     }
 
     renderNotesFrom = () => {
@@ -112,7 +131,7 @@ export class Notes extends Component {
                             <span className="mr-2">
                                 Filiere :
                                 </span>
-                            <select>
+                            <select onChange={this.handleFil} value={this.state.fil}>
                                 {lesfilieres}
                             </select>
                         </div>
@@ -120,7 +139,7 @@ export class Notes extends Component {
                             <span className="mr-2">
                                 Module :
                                 </span>
-                            <select>
+                            <select onChange={this.handleMod} value={this.state.mod}>
                                 {lesmodules}
                             </select>
                         </div>
@@ -128,7 +147,7 @@ export class Notes extends Component {
                             <span className="mr-2">
                                 Matiere :
                                 </span>
-                            <select>
+                            <select onChange={this.handleMat} value={this.state.mat}>
                                 {lesmatieres}
                             </select>
                         </div>
@@ -164,6 +183,35 @@ export class Notes extends Component {
         }
     }
 
+    filterData = () => {
+        let module = this.state.mod;
+        let filiere = this.state.fil;
+        let matiere = this.state.mat;
+        if (matiere !== "Tous") {
+            fetch("api/lesnotes/matiere/" + matiere)
+                .then(res => res.json())
+                .then(data => this.setState({ notes: data }));
+            return;
+        } else if (module !== "Tous") {
+            fetch("api/lesnotes/module/" + module)
+                .then(res => res.json())
+                .then(data => this.setState({ notes: data }));
+            return;
+        } else if (filiere !== "Tous") {
+            fetch("api/lesnotes/filiere/" + filiere)
+                .then(res => res.json())
+                .then(data => this.setState({ notes: data }));
+            return;
+        } else {
+            fetch('api/LesNotes')
+                .then(response => response.json())
+                .then(data => {
+                    this.setState({ notes: data, loading: false });
+                });
+            return;
+        }
+    }
+
     render() {
         let data = [];
         if (this.state.searched !== "") {
@@ -174,13 +222,15 @@ export class Notes extends Component {
         } else {
             data = this.state.notes;
         }
+        this.filterData();
+
         let contents = this.state.loading
             ? <p><em>Loading...</em></p>
             : this.renderNotesTable(data);
         let form = this.renderNotesFrom();
 
         return (
-            <div>
+            <div className="mb-5">
                 <h1>Notes</h1>
                 <p>Inserer la note d'un élève</p>
                 {form}
