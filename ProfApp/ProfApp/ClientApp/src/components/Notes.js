@@ -6,33 +6,41 @@ export class Notes extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { notes: [], searched: "", loading: true, code: "", matiere: "", note: 0, filieres: [] };
-
-        fetch('api/MesNotes/LesNotes')
+        this.state = { notes: [], searched: "", loading: true, code: "", matiere: "", note: 0, filieres: [], matieres: [], modules: [] };
+        fetch('api/LesNotes')
             .then(response => response.json())
             .then(data => {
-                console.log(data);
-                //this.setState({ notes: data, loading: false });
+                this.setState({ notes: data, loading: false });
             });
-        fetch('api/MesNotes/filieres')
+        fetch('api/filieres')
             .then(response => response.json())
             .then(data => {
-                console.log(data: );
-                this.setState({ filieres: data });
-                this.state.filieres = data;
+                let lesfilieres = ["Tous"];
+                for (let i = 0; i < data.length; i++) {
+                    lesfilieres.push(data[i]);
+                }
+                this.setState({ filieres: lesfilieres });
             });
-        this.getData();
-        console.log(this.state.filieres);
+        fetch('api/modules')
+            .then(response => response.json())
+            .then(data => {
+                let lesmodules = [{ code_module: "Tous" }];
+                for (let i = 0; i < data.length; i++) {
+                    lesmodules.push(data[i]);
+                }
+                this.setState({ modules: lesmodules });
+            });
+        fetch('api/matieres')
+            .then(response => response.json())
+            .then(data => {
+                let lesmatieres = [{ code_matiere: "Tous" }];
+                for (let i = 0; i < data.length; i++) {
+                    lesmatieres.push(data[i]);
+                }
+                this.setState({ matieres: lesmatieres });
+            });
     }
 
-    getData = () => {
-        let data = [];
-        for (let i = 0; i < 12; i++) {
-            data.push({ key: Math.random(), nom: "Enaime" + i, prenom: "Hamza" + i, filiere: "GINF", module: "Programmation", matiere: "C#", note: "18" });
-        }
-        this.state.notes = data;
-        this.state.loading = false;
-    }
     handleCode = (e) => {
         this.setState({ code: e.target.value });
     }
@@ -44,30 +52,26 @@ export class Notes extends Component {
         let note;
         if (e.target.value !== "") {
             note = parseFloat(e.target.value);
+        } else {
+            note = 0;
         }
         this.setState({ note: note });
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state);
+        fetch("api/addnote/" + this.state.code + "/" + this.state.matiere + "/" + this.state.note)
+            .then(res => console.log(res));
+
     }
 
     handleSearch = (e) => {
         this.state.searched = e.target.value;
         this.setState({ state: this.state });
-        console.log(this.state);
     }
 
     renderNotesFrom = () => {
-        const notes = [];
-        for (let i = 0; i <= 20; i = i + 0.25) {
-            notes.push(<option key={i} value="Advertise">{i}</option>);
-        }
-        const lesfilieres = [];
-        for (let i = 0; i <= this.state.filieres.length; i++) {
-            notes.push(<option key={i} value="Advertise">{this.state.filieres[i]}</option>);
-        }
+
         return (
             <form onSubmit={this.handleSubmit}>
                 <ul className="form-style-1">
@@ -78,35 +82,86 @@ export class Notes extends Component {
                     <li>
                         <input type="submit" value="Inserer" />
                     </li>
-                    <select>
-                        {lesfilieres}
-                    </select>
+
                 </ul>
             </form>
         );
     }
 
-    static renderForecastsTable(notes) {
-        return (
-            <table className='table'>
-                <thead>
-                    <tr>
-                        <th>Nom</th>
-                        <th>Prenom</th>
-                        <th>Note</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {notes.map(note =>
-                        <tr key={note.key}>
-                            <td>{note.nom}</td>
-                            <td>{note.prenom}</td>
-                            <td>{note.note}</td>
-                        </tr>
-                    )}
-                </tbody>
-            </table>
-        );
+    renderNotesTable(notes) {
+        const lesfilieres = [];
+        for (let i = 0; i < this.state.filieres.length; i++) {
+            let filiere = this.state.filieres[i];
+            lesfilieres.push(<option key={i} value={filiere}>{filiere}</option>);
+        }
+        const lesmodules = [];
+        for (let i = 0; i < this.state.modules.length; i++) {
+            let module = this.state.modules[i];
+            lesmodules.push(<option key={i} value={module.code_module}>{module.code_module}</option>);
+        }
+        const lesmatieres = [];
+        for (let i = 0; i < this.state.matieres.length; i++) {
+            let matiere = this.state.matieres[i];
+            lesmatieres.push(<option key={i} value={matiere.code_matiere}>{matiere.code_matiere}</option>);
+        }
+        if (this.state.filieres.length) {
+            return (
+                <div>
+                    <div className="row">
+                        <div className="col">
+                            <span className="mr-2">
+                                Filiere :
+                                </span>
+                            <select>
+                                {lesfilieres}
+                            </select>
+                        </div>
+                        <div className="col">
+                            <span className="mr-2">
+                                Module :
+                                </span>
+                            <select>
+                                {lesmodules}
+                            </select>
+                        </div>
+                        <div className="col">
+                            <span className="mr-2">
+                                Matiere :
+                                </span>
+                            <select>
+                                {lesmatieres}
+                            </select>
+                        </div>
+                    </div>
+                    <table className='table'>
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Prenom</th>
+                                <th>Note</th>
+                                <th>Module</th>
+                                <th>Matiere</th>
+                                <th>Filiere</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {notes.map(note =>
+                                <tr key={note.key}>
+                                    <td>{note.nom}</td>
+                                    <td>{note.prenom}</td>
+                                    <td>{note.note}</td>
+                                    <td>{note.codeModule}</td>
+                                    <td>{note.codeMat}</td>
+                                    <td>{note.codeFiliere}</td>
+                                </tr>
+                            )}
+                        </tbody>
+                    </table>
+                </div>
+            );
+        } else {
+            return (<div>Loading ...</div>)
+        }
     }
 
     render() {
@@ -121,7 +176,7 @@ export class Notes extends Component {
         }
         let contents = this.state.loading
             ? <p><em>Loading...</em></p>
-            : Notes.renderForecastsTable(data);
+            : this.renderNotesTable(data);
         let form = this.renderNotesFrom();
 
         return (
