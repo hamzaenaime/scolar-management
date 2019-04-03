@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 
-namespace AppProf.Controllers {
+namespace ProfApp.Controllers {
     public abstract class Mysql {
         private string BD;
         private string Pass;

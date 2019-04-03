@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AppProf.Controllers {
+namespace ProfApp.Controllers {
     public class Note {
         private string code_matiere;
         private string lanote;

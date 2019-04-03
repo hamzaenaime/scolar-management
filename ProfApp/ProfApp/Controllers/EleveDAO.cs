@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace AppProf.Controllers {
+namespace ProfApp.Controllers {
     public class EleveDAO : DAO, IDAO<Eleve> {
         public EleveDAO(string table) : base(table) {
 

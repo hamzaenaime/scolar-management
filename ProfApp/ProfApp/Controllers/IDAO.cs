@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace AppProf.Controllers {
+namespace ProfApp.Controllers {
     public interface IDAO<t> {
         int Delete(string condition);
         int Insert(t M);

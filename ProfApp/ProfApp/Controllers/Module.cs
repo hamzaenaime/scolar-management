@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AppProf.Controllers {
+namespace ProfApp.Controllers {
     public class Module {
         private string code_module;
         private string designation;

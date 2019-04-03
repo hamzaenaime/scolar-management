@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AppProf.Controllers {
+namespace ProfApp.Controllers {
     public class Filiere {
         private string codeF;
         private string designation;

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AppProf.Controllers {
+namespace ProfApp.Controllers {
 
 
 

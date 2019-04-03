@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AppProf.Controllers {
+namespace ProfApp.Controllers {
     public class Eleve {
         private string code_fil;
         private string codeElev;

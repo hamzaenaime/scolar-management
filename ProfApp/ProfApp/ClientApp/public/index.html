@@ -82,7 +82,7 @@
                 heures = (Number(heures) * 3600 + Number(secondes) + Number(minutes) * 60) * 30 / 3600;
                 minutes = (Number(minutes * 60) + Number(secondes)) * 6 / 60;
 
-                console.log(minutes + ' ' + heures);
+
 
                 $('.secondes').css({ '-webkit-transform': 'rotate(' + secondes * 6 + 'deg)', '-moz-transform': 'rotate(' + secondes * 6 + 'deg)', 'transform': 'rotate(' + secondes * 6 + 'deg)' });
                 $('.minutes').css({ '-webkit-transform': 'rotate(' + minutes + 'deg)', '-moz-transform': 'rotate(' + minutes + 'deg)', 'transform': 'rotate(' + minutes + 'deg)' });
